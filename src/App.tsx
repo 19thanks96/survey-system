@@ -1,11 +1,12 @@
+import React from "react"
 import logo from "./logo.svg"
 import { Counter } from "./features/counter/Counter"
-import { Login } from "./features/login/Login.tsx"
+import { Login } from "./features/login/Login"
 import "./App.css"
 
-function App() {
+const App: React.FC = () => { 
   return (
-    <div className="App">
+    <div>
       <Login></Login>
     </div>
   )
