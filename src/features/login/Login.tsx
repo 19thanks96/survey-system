@@ -13,21 +13,25 @@ export function Login() {
   function handlePasswordChange(event: React.ChangeEvent<HTMLInputElement>) {
     setPassword(event.target.value)
   }
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+  }
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <h1>
         Login page
       </h1>
       <h2>
         Email
       </h2>
-      <input value={email} onChange={handleEmailChange}/>
+      <input type='text' value={email} onChange={handleEmailChange}/>
       {email}
       <h2>
         Password
       </h2>
-      <input value={password} onChange={handlePasswordChange}/>
+      <input type='password' value={password} onChange={handlePasswordChange}/>
       {password}
-    </div>
+      <input type='submit' value="Submit"/>
+    </form>
   )
 }
