@@ -4,6 +4,12 @@ import { UsersModule } from '../users/users.module';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthController } from './auth.controller';
 import { jwtConstants } from './constants';
+import { APP_GUARD } from '@nestjs/core';
+import { RolesGuard } from './roles.guard';
+import { SetMetadata } from '@nestjs/common';
+
+export const IS_PUBLIC_KEY = 'isPublic';
+export const Public = () => SetMetadata(IS_PUBLIC_KEY, true);
 
 @Module({
   imports: [
@@ -14,7 +20,9 @@ import { jwtConstants } from './constants';
       signOptions: { expiresIn: '60s' },
     }),
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+  ],
   controllers: [AuthController],
   exports: [AuthService],
 })
