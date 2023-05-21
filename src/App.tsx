@@ -4,9 +4,11 @@ import { Counter } from "./features/counter/Counter"
 import { Login } from "./features/login/Login"
 import "./App.css"
 
+
+
 const App: React.FC = () => { 
   return (
-    <div>
+    <div className='App'>
       <Login></Login>
     </div>
   )
