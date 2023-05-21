@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useAppSelector, useAppDispatch } from "../../app/hooks"
 import 'bootstrap/dist/css/bootstrap.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 //import {styles} from "./Login.module.css"
 //import styles from "*.module.css"
 
@@ -11,7 +12,7 @@ export function Login() {
   const [password, setPassword] = useState<string>('')
   const isLoggedIn = useAppSelector(selectIsLoggedIn)
   const status = useAppSelector(selectStatus)
-  console.log(status)
+
 
   
   const dispatch = useAppDispatch()
@@ -24,7 +25,6 @@ export function Login() {
   }
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    console.log(email, password)
     dispatch(submitLoginAsync({email, password}))
   }
   return (

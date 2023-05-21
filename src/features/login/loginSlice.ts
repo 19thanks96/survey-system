@@ -15,7 +15,7 @@ export const submitLoginAsync = createAsyncThunk(
   "login/submitLogin",
   async (crendentials: Crendentials) => {
     const response = await submitLoginRequest(crendentials)
-    return response.data
+    return response
   },
 )
 
@@ -36,6 +36,7 @@ export const loginSlice = createSlice({
       .addCase(submitLoginAsync.fulfilled, (state: any, action: any) => {
         state.status = "success"
         state.isLoggedIn = true
+        state.access_token = action.payload.access_token
       })
       .addCase(submitLoginAsync.rejected, (state: any) => {
         state.status = "failed"
